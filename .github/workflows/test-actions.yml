@@ -10,7 +10,7 @@ on:
 jobs:
   testaction:
     runs-on: ubuntu-latest
-    environment: dev
+    environment: testing-env
     steps:
     - name: checkout
       uses: actions/checkout@v3
