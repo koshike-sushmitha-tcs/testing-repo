@@ -1,12 +1,13 @@
-name : Testing
-on :
+name: Mixed inputs
+on:
   workflow_dispatch:
     inputs:
       message:
-      description: "Enter a message"
-      required: true
+        required: true
+        description : "Enter a message"
 jobs:
   testaction:
+    runs-on: ubuntu-latest
     steps:
     - name: checkout
       uses: actions/checkout@v3
