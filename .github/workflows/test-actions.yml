@@ -17,8 +17,8 @@ jobs:
     - name : print the message
       run : |
         echo "hello  ${{ github.event.inputs.message }}"
-    - name: show test.txt file content
-      run: cat test.txt
+    - name: show sush.tfvars file content
+      run: cat sush.tfvars
       
       
       
