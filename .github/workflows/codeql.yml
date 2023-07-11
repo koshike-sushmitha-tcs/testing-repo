@@ -49,7 +49,7 @@ jobs:
         python -m pip install --upgrade pip
         # Set the `CODEQL-PYTHON` environment variable to the Python executable
         # that includes the dependencies
-        #echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
+        echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
         echo "sushmitha"
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
@@ -58,6 +58,7 @@ jobs:
         languages: python
         queries: security-and-quality
         setup-python-dependencies: false
+        source-root: src
 
         # If you wish to specify custom queries, you can do so here or in a config file.
         # By default, queries listed here will override any specified in a config file.
