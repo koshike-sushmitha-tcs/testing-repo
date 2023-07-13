@@ -6,6 +6,7 @@ on:
   pull_request:
     # The branches below must be a subset of the branches above
     branches: [ "main" ]
+  workflow_dispatch:
 
 jobs:
   analyze:
@@ -52,12 +53,14 @@ jobs:
         queries: security-and-quality
         setup-python-dependencies: false
   Install-autobuild:
+    needs: Install-codeql
     name : Install autobuild
     runs-on : ubuntu-latest
     steps:
     - name: Autobuild
       uses: github/codeql-action/autobuild@v2
   Install-Code-Analysis:
+    needs : Install-codeql
     name : Install Analysis
     runs-on : ubuntu-latest
     steps:
