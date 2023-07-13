@@ -1,4 +1,4 @@
-name: "CodeQL-scanning"
+name: "CodeQL"
 
 on:
   push:
@@ -41,27 +41,27 @@ jobs:
         echo "CODEQL_PYTHON=$(which python)" >> $GITHUB_ENV
         echo "sushmitha"
     # Initializes the CodeQL tools for scanning.
-    Install-codeql:
-      name : Install codeql Dependencies
-      runs-on : ubuntu-latest
-      steps:
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: python
-          queries: security-and-quality
-          setup-python-dependencies: false
-    Install-autobuild:
-      name : Install autobuild
-      runs-on : ubuntu-latest
-      steps:
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
-    Install-Code Analysis:
-      name : Install Analysis
-      runs-on : ubuntu-latest
-      steps:
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
-        with:
-          category: "/language:${{matrix.language}}"
+  Install-codeql:
+    name : Install codeql Dependencies
+    runs-on : ubuntu-latest
+    steps:
+    - name: Initialize CodeQL
+      uses: github/codeql-action/init@v2
+      with:
+        languages: python
+        queries: security-and-quality
+        setup-python-dependencies: false
+  Install-autobuild:
+    name : Install autobuild
+    runs-on : ubuntu-latest
+    steps:
+    - name: Autobuild
+      uses: github/codeql-action/autobuild@v2
+  Install-Code-Analysis:
+    name : Install Analysis
+    runs-on : ubuntu-latest
+    steps:
+    - name: Perform CodeQL Analysis
+      uses: github/codeql-action/analyze@v2
+      with:
+        category: "/language:${{matrix.language}}"
